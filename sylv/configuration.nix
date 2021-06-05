@@ -150,6 +150,7 @@
     firefox
     micro
     httpie
+    sublime4
 
     libwacom
     wacomtablet

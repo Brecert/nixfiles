@@ -45,20 +45,29 @@
     ripgrep
     ruplacer
 
-
     # for qdbus
     qt5.qttools
 
     # for cargo
     cargo-edit
 
+    # for nix
+    nixpkgs-fmt
+
     # extensions
     dislocker
     kmix
 
-    # nix
-    nixpkgs-fmt
+    # fonts
+    ibm-plex
   ];
+
+  # enable the direnv environment loader
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    enableNixDirenvIntegration = true;
+  };
 
   # configure the fish shell
   programs.fish = {
@@ -97,6 +106,9 @@
     signing = {
       key = "1B2E56B9EC985B96";
       signByDefault = true;
+    };
+    extraConfig = {
+      init.defaultBranch = "main";
     };
   };
 
