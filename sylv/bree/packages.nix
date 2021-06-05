@@ -102,7 +102,7 @@
   programs.git = {
     enable = true;
     userEmail = "me@bree.dev";
-    userName = "bree";
+    userName = "brecert";
     signing = {
       key = "1B2E56B9EC985B96";
       signByDefault = true;
@@ -110,6 +110,14 @@
     extraConfig = {
       init.defaultBranch = "main";
     };
+    includes = [
+      {
+        contents = {
+          user.name = "bree";
+        };
+        condition = "gitdir:~/Code/projects/revolt/";
+      }
+    ];
   };
 
   # enable mpd
