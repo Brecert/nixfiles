@@ -109,6 +109,7 @@
     };
     extraConfig = {
       init.defaultBranch = "main";
+      credidential.helper = "store";
     };
     includes = [
       {
