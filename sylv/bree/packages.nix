@@ -24,10 +24,14 @@
 
     # languages
     # TODO: uhhh, containerize these I guess..
+    # Or not, setting up flakes with vscode is a pain and I use these daily anyways.
     nodejs_latest
     yarn
     ruby
     deno
+    # Rustup for rust analyzer integration
+    rustup
+    clang
 
     # cli apps (?)
     bottom
