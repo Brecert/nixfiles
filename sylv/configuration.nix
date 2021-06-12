@@ -47,8 +47,8 @@
       wlp59s0.useDHCP = true;
     };
 
-    nameservers =
-      [ "155.138.240.237" "2001:19f0:6401:b3d:5400:2ff:fe5a:fb9f" ];
+    # nameservers =
+    #   [ "155.138.240.237" "2001:19f0:6401:b3d:5400:2ff:fe5a:fb9f" ];
   };
 
   # Select internationalisation properties.

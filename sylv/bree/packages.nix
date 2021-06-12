@@ -1,4 +1,31 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: 
+let
+  extensions = with pkgs.vscode-extensions; [
+    # akamud.vscode-theme-onelight
+    # vincentfiestada.cold-horizon-vscode
+    # crystal-lang-tools.crystal-lang
+    # denoland.vscode-deno
+    dracula-theme.theme-dracula
+    github.github-vscode-theme
+    # rreverser.llvm
+    # vitoravelino.mosaic
+    bbenoist.Nix
+    jnoortheen.nix-ide
+    # arcticicestudio.nord-visual-studio-code
+    # tinkertrain.theme-panda
+    esbenp.prettier-vscode
+    # searking.preview-vscode
+    ms-python.python
+    matklad.rust-analyzer
+    # ahmadawais.shades-of-purple
+    # octref.vetur
+    # tiehuis.zig
+    # rubymaniac.vscode-direnv
+  ];
+  vscode-with-extensions = pkgs.vscode-with-extensions.override {
+    vscodeExtensions = extensions;
+  };
+in {
   # enable fontconfig
   fonts.fontconfig.enable = true;
 
@@ -8,11 +35,15 @@
     ark
     mpv
     krita
+    gthumb
     tdesktop
     ksysguard
     keepassxc
     obs-studio
+    element-desktop
     ungoogled-chromium
+    # vscode-with-extensions
+    vscode
 
     ## development
     alacritty
@@ -29,9 +60,11 @@
     yarn
     ruby
     deno
-    # Rustup for rust analyzer integration
-    rustup
+    # rust components for rust analyzer integration
+    rustc
+    cargo
     clang
+    glibc
 
     # cli apps (?)
     bottom
