@@ -34,6 +34,7 @@ in {
     # applications
     ark
     mpv
+    ngrok
     krita
     gthumb
     tdesktop
@@ -42,6 +43,8 @@ in {
     obs-studio
     element-desktop
     ungoogled-chromium
+
+
     # vscode-with-extensions
     vscode
 
@@ -103,7 +106,7 @@ in {
   programs.direnv = {
     enable = true;
     enableFishIntegration = true;
-    enableNixDirenvIntegration = true;
+    nix-direnv.enable = true;
   };
 
   # configure the fish shell
