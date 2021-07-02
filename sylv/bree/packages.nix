@@ -64,10 +64,11 @@ in {
     ruby
     deno
     # rust components for rust analyzer integration
-    rustc
-    cargo
+    rustup
     clang
     glibc
+    # rustfmt
+    rust-analyzer
 
     # cli apps (?)
     bottom
