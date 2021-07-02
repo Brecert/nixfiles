@@ -13,6 +13,7 @@
   # Hardware (soft) configuration
   hardware.opengl.driSupport32Bit = true;
   hardware.steam-hardware.enable = true;
+  hardware.bluetooth.enable = true;
 
   ## Nvidia configuration
   services.xserver.videoDrivers = [ "nvidia" ];
