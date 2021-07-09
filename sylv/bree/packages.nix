@@ -36,6 +36,7 @@ in {
     mpv
     ngrok
     krita
+    anbox
     gthumb
     tdesktop
     ksysguard
@@ -97,6 +98,7 @@ in {
 
     # extensions
     dislocker
+    orca
     kmix
 
     # fonts
