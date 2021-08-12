@@ -29,10 +29,13 @@
 
   ## XServer hardware (soft) configurations
   services.xserver = {
-    # Enable wacom tablet support.
+    # Enable wacom and generic tablet support.
     wacom.enable = true;
+    # digimend.enable = true;
     modules = [ pkgs.xf86_input_wacom ];
   };
+  # hardware.opentabletdriver.enable = true;
+  # hardware.opentabletdriver.daemon.enable = true;
 
 
   # Networking configuration

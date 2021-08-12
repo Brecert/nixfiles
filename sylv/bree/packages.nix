@@ -36,14 +36,16 @@ in {
     mpv
     ngrok
     krita
-    anbox
     gthumb
     tdesktop
     ksysguard
     keepassxc
+    spectacle
     obs-studio
+    dolphinEmuMaster
     element-desktop
     ungoogled-chromium
+    simplescreenrecorder
 
 
     # vscode-with-extensions
@@ -98,11 +100,12 @@ in {
 
     # extensions
     dislocker
-    orca
     kmix
 
     # fonts
     ibm-plex
+    # for telegram
+    open-sans
   ];
 
   # enable the direnv environment loader
