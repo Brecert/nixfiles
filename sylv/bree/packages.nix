@@ -38,7 +38,7 @@ in {
     krita
     gthumb
     tdesktop
-    ksysguard
+    # ksysguard # replaced by plasma system monitor
     keepassxc
     spectacle
     obs-studio
