@@ -160,7 +160,7 @@
     wacomtablet
     xf86_input_wacom
     fceux
-    wineMinimal
+    wineWowPackages.stable
   ];
 
   programs.fish.enable = true;
