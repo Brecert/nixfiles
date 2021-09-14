@@ -38,12 +38,12 @@ in {
     krita
     gthumb
     tdesktop
-    # ksysguard # replaced by plasma system monitor
     keepassxc
     spectacle
     obs-studio
     dolphinEmuMaster
     element-desktop
+    helio-workstation
     ungoogled-chromium
     simplescreenrecorder
 
