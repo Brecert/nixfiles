@@ -36,7 +36,6 @@ in {
     mpv
     ngrok
     krita
-    gthumb
     tdesktop
     keepassxc
     spectacle
@@ -100,8 +99,7 @@ in {
 
     # extensions
     dislocker
-    kmix
-
+    
     # fonts
     ibm-plex
     # for telegram
@@ -167,20 +165,6 @@ in {
     ];
   };
 
-  # enable mpd
-  # services.mpd = {
-  #   enable = true;
-  #   musicDirectory = config.home.programs.beets.settings.directory;
-  # };
-
-  # # enable beets
-  # programs.beets = {
-  #   enable = true;
-  #   settings = {
-  #     directory = config.xdg.userDirs.music;
-  #     library = "${config.xdg.userDirs.music}/library.db";
-  #   };
-  # };
 
   # enable services
   programs.emacs.enable = true;
