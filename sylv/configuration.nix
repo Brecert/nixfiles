@@ -114,8 +114,8 @@
   # Desktop enviroment configuration
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
   };
 
   # Sound configuration
@@ -126,7 +126,7 @@
   hardware.pulseaudio.enable = false;
 
   # enable rtkit to allow pipewire to gain realtime priority (not that it matters)
-  # security.rtkit.enable = true;
+  security.rtkit.enable = true;
 
   # enable pipewire and configure it to provide a pulseaudio and alsa interface
   services.pipewire = {
