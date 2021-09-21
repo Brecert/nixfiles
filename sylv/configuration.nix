@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ nixpkgs, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -138,6 +138,7 @@
   # Nix configuration
   # Enable non-free packages.
   nixpkgs.config.allowUnfree = true;
+
   nix = {
 
     # use the unstable version of nix
@@ -148,6 +149,33 @@
       experimental-features = nix-command flakes
     '';
   };
+
+  nixpkgs.overlays = [
+    (self: super: {
+      nixUnstable = super.nixUnstable.override {
+        patches = [
+          (pkgs.writeTextFile {
+            name = "unset-is-macho.patch";
+            text = ''
+              diff --git a/src/nix/get-env.sh b/src/nix/get-env.sh
+              index 42c806450..a8563c772 100644
+              --- a/src/nix/get-env.sh
+              +++ b/src/nix/get-env.sh
+              @@ -8,6 +8,8 @@ if [[ -n $stdenv ]]; then
+                   source $stdenv/setup
+               fi
+               
+              +unset -f isMachO
+              +
+               # Better to use compgen, but stdenv bash doesn't have it.
+               __vars="$(declare -p)"
+               __functions="$(declare -F)"
+            '';
+          })
+        ];
+      };
+    })
+  ];
 
   # Programs and Services configuration
   environment.systemPackages = with pkgs; [

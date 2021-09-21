@@ -25,9 +25,22 @@ let
   vscode-with-extensions = pkgs.vscode-with-extensions.override {
     vscodeExtensions = extensions;
   };
+  # # ;-;
+  # multimc-latest = pkgs.multimc.overrideAttrs (old: {
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "MultiMC";
+  #     repo = "MultiMC5";
+  #     rev = "a5956194df7588c22b6853966dba63dda7cbb7ac";
+  #     sha256 = "1dq35szcdgks89k6chdm8j91a140gdcna0p0ap5f0hfi6cswspvc";
+  #     fetchSubmodules = true;
+  #   };
+  #   patches = [];
+  #   postPatch = "";
+  # });
 in {
   # enable fontconfig
   fonts.fontconfig.enable = true;
+
 
   # packages to install for the user
   home.packages = with pkgs; [
@@ -57,7 +70,7 @@ in {
     sublime-merge
 
     ## gaming
-    multimc
+    multimc  
 
     # languages
     # TODO: uhhh, containerize these I guess..
