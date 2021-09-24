@@ -25,18 +25,16 @@ let
   vscode-with-extensions = pkgs.vscode-with-extensions.override {
     vscodeExtensions = extensions;
   };
-  # # ;-;
-  # multimc-latest = pkgs.multimc.overrideAttrs (old: {
-  #   src = pkgs.fetchFromGitHub {
-  #     owner = "MultiMC";
-  #     repo = "MultiMC5";
-  #     rev = "a5956194df7588c22b6853966dba63dda7cbb7ac";
-  #     sha256 = "1dq35szcdgks89k6chdm8j91a140gdcna0p0ap5f0hfi6cswspvc";
-  #     fetchSubmodules = true;
-  #   };
-  #   patches = [];
-  #   postPatch = "";
-  # });
+  # ;-;
+  multimc-signed = pkgs.multimc.override {
+    msaClientID = "81a207c0-a53c-46a3-be07-57d2b28c1643";
+  };
+  multimc-with-jdk11 = multimc-signed.overrideAttrs (oldAttrs: {
+    postPatch = oldAttrs.postPatch + ''
+      substituteInPlace launcher/java/JavaUtils.cpp \
+        --replace 'scanJavaDir("/usr/java")' 'javas.append("${pkgs.jdk11}/lib/openjdk/bin/java")'
+    '';
+  });
 in {
   # enable fontconfig
   fonts.fontconfig.enable = true;
@@ -70,7 +68,7 @@ in {
     sublime-merge
 
     ## gaming
-    multimc  
+    multimc-with-jdk11  
 
     # languages
     # TODO: uhhh, containerize these I guess..
