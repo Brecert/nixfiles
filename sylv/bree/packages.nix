@@ -68,7 +68,8 @@ in {
     sublime-merge
 
     ## gaming
-    multimc-with-jdk11  
+    multimc-with-jdk11
+    # airshipper
 
     # languages
     # TODO: uhhh, containerize these I guess..
