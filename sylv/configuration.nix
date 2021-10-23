@@ -112,11 +112,15 @@
   };
 
   # Desktop enviroment configuration
-  services.xserver = {
-    enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-  };
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
+  # services.xserver = {
+  #   enable = true;
+  #   displayManager.sddm.enable = true;
+  #   desktopManager.plasma5.enable = true;
+  # };
 
   # Sound configuration
   # TODO: switch to pipewire and enable the bridges
@@ -162,6 +166,8 @@
     xf86_input_wacom
     fceux
     wineWowPackages.stable
+
+    gnomeExtensions.appindicator
   ];
 
   programs.fish.enable = true;
