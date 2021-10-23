@@ -46,21 +46,20 @@ in {
   # packages to install for the user
   home.packages = with pkgs; [
     # applications
-    ark
+    # ark
     mpv
     ngrok
     krita
     gthumb
     tdesktop
     keepassxc
-    spectacle
+    # spectacle
     obs-studio
     element-desktop
     dolphinEmuMaster
     helio-workstation
     ungoogled-chromium
     simplescreenrecorder
-
 
     # vscode-with-extensions
     vscode
@@ -115,7 +114,6 @@ in {
 
     # extensions
     dislocker
-    # kmix
 
     # fonts
     # for sublime text writer profile
