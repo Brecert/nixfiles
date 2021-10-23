@@ -158,7 +158,7 @@
   environment.systemPackages = with pkgs; [
     micro
     httpie
-    firefox
+    # firefox
     sublime4
 
     libwacom

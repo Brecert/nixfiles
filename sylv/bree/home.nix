@@ -10,7 +10,8 @@
     homeDirectory = "/home/bree";
 
     # link in the manpages and documentation outputs from installed packages
-    extraOutputsToInstall = [ "man" "doc" ];
+    # temporarily disabled due to increasing build time by a bit without providing much benefit
+    # extraOutputsToInstall = [ "man" "doc" ];
   };
 
   # This value determines the Home Manager release that your
