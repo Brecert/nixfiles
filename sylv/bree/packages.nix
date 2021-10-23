@@ -52,8 +52,8 @@ in {
     keepassxc
     spectacle
     obs-studio
-    dolphinEmuMaster
     element-desktop
+    dolphinEmuMaster
     helio-workstation
     ungoogled-chromium
     simplescreenrecorder
@@ -68,6 +68,7 @@ in {
     sublime-merge
 
     ## gaming
+    steam-run-native
     multimc-with-jdk11
     # airshipper
 
