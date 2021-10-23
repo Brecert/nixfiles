@@ -39,7 +39,6 @@ in {
   # enable fontconfig
   fonts.fontconfig.enable = true;
 
-
   # packages to install for the user
   home.packages = with pkgs; [
     # applications
@@ -113,9 +112,10 @@ in {
 
     # extensions
     dislocker
-    kmix
+    # kmix
 
     # fonts
+    # for sublime text writer profile
     ibm-plex
     # for telegram
     open-sans
@@ -147,7 +147,7 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
-      font.size = 8;
+      font.size = 10;
       window = {
         padding = {
           x = 5;

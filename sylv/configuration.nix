@@ -84,7 +84,7 @@
     fontconfig.defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace = [
-        "Fira Code"
+        "Noto Sans Mono"
         "Noto Sans Mono CJK JP"
         "Noto Sans Mono CJK KR"
         "Noto Sans Mono CJK HK"
@@ -168,6 +168,7 @@
     wineWowPackages.stable
 
     gnomeExtensions.appindicator
+    gnomeExtensions.screenshot-tool
   ];
 
   programs.fish.enable = true;
