@@ -53,8 +53,9 @@ in {
     gthumb
     tdesktop
     keepassxc
-    # spectacle
     obs-studio
+    apostrophe
+    # spectacle
     element-desktop
     dolphinEmuMaster
     helio-workstation

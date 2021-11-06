@@ -56,9 +56,10 @@ in {
   # configure the fish shell
   programs.fish = {
     enable = true;
-    shellAliases = {
-      l = "exa -l";
-      ls = "exa";
+    shellAliases = with pkgs; {
+      l = "${exa}/bin/exa -l";
+      ls = "${exa}/bin/exa";
+      pd = "prevd";
     };
   };
 
