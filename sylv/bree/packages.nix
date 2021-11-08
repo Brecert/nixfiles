@@ -1,30 +1,5 @@
 { config, pkgs, ... }: 
 let
-  extensions = with pkgs.vscode-extensions; [
-    # akamud.vscode-theme-onelight
-    # vincentfiestada.cold-horizon-vscode
-    # crystal-lang-tools.crystal-lang
-    # denoland.vscode-deno
-    dracula-theme.theme-dracula
-    github.github-vscode-theme
-    # rreverser.llvm
-    # vitoravelino.mosaic
-    bbenoist.Nix
-    jnoortheen.nix-ide
-    # arcticicestudio.nord-visual-studio-code
-    # tinkertrain.theme-panda
-    esbenp.prettier-vscode
-    # searking.preview-vscode
-    ms-python.python
-    matklad.rust-analyzer
-    # ahmadawais.shades-of-purple
-    # octref.vetur
-    # tiehuis.zig
-    # rubymaniac.vscode-direnv
-  ];
-  vscode-with-extensions = pkgs.vscode-with-extensions.override {
-    vscodeExtensions = extensions;
-  };
   # ;-;
   multimc-signed = pkgs.multimc.override {
     msaClientID = "81a207c0-a53c-46a3-be07-57d2b28c1643";

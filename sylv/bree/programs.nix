@@ -42,10 +42,6 @@ in {
     };
   };
 
-  # home.file.".mozilla/firefox/${config.programs.firefox.profiles.primary.path}/firefox-gnome-theme" = {
-  #   source = firefox-gnome-theme;
-  # };
-
   # enable the direnv environment loader
   programs.direnv = {
     enable = true;
@@ -103,5 +99,5 @@ in {
   services.emacs.enable = true;
 
   # enable the syncthing file synchronization tool
-  services.syncthing.enable = true;
+  services.syncthing.enable = false;
 }

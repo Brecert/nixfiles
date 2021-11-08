@@ -193,7 +193,7 @@
   };
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh.enable = false;
 
 
   # This value determines the NixOS release from which the default
