@@ -19,8 +19,7 @@
     nixosConfigurations.sylv = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        nixos-hardware.nixosModules.dell-xps-15-7590
-        nixos-hardware.nixosModules.common-gpu-nvidia
+        nixos-hardware.nixosModules.dell-xps-15-9560
         home-manager.nixosModules.home-manager
         ./sylv/configuration.nix
       ];
