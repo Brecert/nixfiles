@@ -148,7 +148,7 @@
       experimental-features = nix-command flakes
     '';
 
-    # useSandbox = true;
+    useSandbox = false;
   };
 
   # Programs and Services configuration
