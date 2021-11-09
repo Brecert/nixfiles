@@ -1,6 +1,5 @@
 {
   inputs = {
-    # Currently broken so...
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixos-hardware = {

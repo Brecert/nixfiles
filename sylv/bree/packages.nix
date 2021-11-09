@@ -1,100 +1,110 @@
-{ config, pkgs, ... }: 
-let
-  # ;-;
-  multimc-signed = pkgs.multimc.override {
-    msaClientID = "81a207c0-a53c-46a3-be07-57d2b28c1643";
-  };
-  multimc-with-jdk11 = multimc-signed.overrideAttrs (oldAttrs: {
-    postPatch = oldAttrs.postPatch + ''
-      substituteInPlace launcher/java/JavaUtils.cpp \
-        --replace 'scanJavaDir("/usr/java")' 'javas.append("${pkgs.jdk11}/lib/openjdk/bin/java")'
-    '';
-  });
-in {
-  imports = [
-    ./programs.nix
-  ];
+{ config, lib, pkgs, ... }:
+{
+  home.packages = with pkgs; lib.flatten [
+    # Apps
+    # > general use applications, generally with a gui
+    [
+      mpv
+      ngrok
+      krita
+      gthumb
+      tdesktop
+      keepassxc
+      obs-studio
+      apostrophe
+      element-desktop
+      dolphinEmuMaster
+      helio-workstation
+      ungoogled-chromium
+      simplescreenrecorder
+    ]
 
-  # enable fontconfig
-  fonts.fontconfig.enable = true;
+    ## Development
+    ## > apps intended for use with development
+    [
+      alacritty
+      kcolorchooser
+      sublime-merge
+      vscode
+    ]
 
-  # packages to install for the user
-  home.packages = with pkgs; [
-    # applications
-    # ark
-    mpv
-    ngrok
-    krita
-    gthumb
-    tdesktop
-    keepassxc
-    obs-studio
-    apostrophe
-    # spectacle
-    element-desktop
-    dolphinEmuMaster
-    helio-workstation
-    ungoogled-chromium
-    simplescreenrecorder
+    ## Gaming
+    ## > apps associated and intended for gaming
+    (
+      let
+        multimc-signed = pkgs.multimc.override { msaClientID = "81a207c0-a53c-46a3-be07-57d2b28c1643"; };
+        multimc-with-jdk11 = multimc-signed.overrideAttrs (oldAttrs: {
+          postPatch = oldAttrs.postPatch + ''
+            substituteInPlace launcher/java/JavaUtils.cpp \
+              --replace 'scanJavaDir("/usr/java")' 'javas.append("${pkgs.jdk11}/lib/openjdk/bin/java")'
+          '';
+        });
+      in
+      [ multimc-with-jdk11 ]
+    )
 
-    # vscode-with-extensions
-    vscode
+    # Programming Languages
+    # > while consistency and eventual reproducability is an important goal,
+    #   I use these languages often enough, and in isolation ( without touching external dependencies )
+    #   that "containerizing" them every time is not wanted.
+    # 
+    # node/todo: with nix templates, and improvements to the devshell and setting up a project, the above reasons will be less of an issue.  
+    [
+      nodejs_latest
+      yarn
+      ruby
+      deno
 
-    ## development
-    alacritty
-    kcolorchooser
-    sublime-merge
+      # Rust
+      [
+        rust-analyzer
+        rustup
+        clang
+        glibc
 
-    ## gaming
-    steam-run-native
-    multimc-with-jdk11
-    # airshipper
+        # adds `cargo add`
+        cargo-edit
+      ]
 
-    # languages
-    # TODO: uhhh, containerize these I guess..
-    # Or not, setting up flakes with vscode is a pain and I use these daily anyways.
-    nodejs_latest
-    yarn
-    ruby
-    deno
-    # rust components for rust analyzer integration
-    rustup
-    clang
-    glibc
-    # rustfmt
-    rust-analyzer
+      # Nix
+      [
+        nixpkgs-fmt
+      ]
+    ]
+    ## components for rust analyzer integration
 
-    # cli apps (?)
-    bottom
-    mpc_cli
+    # Command line tooling
+    # > tools meant for use in or with the command line
+    [
+      steam-run-native
+      ruplacer
+      ripgrep
+      bottom
+      ffmpeg
+      httplz
+      pandoc
+      bat
+      exa
+      fd
+      sd
+    ]
 
-    # cli tools
-    sd
-    fd
-    exa
-    bat
-    ffmpeg
-    httplz
-    pandoc
-    ripgrep
-    ruplacer
+    # Fonts
+    [
+      # for sublime text writer profile
+      ibm-plex
 
-    # for qdbus
-    qt5.qttools
+      # for telegram
+      open-sans
+    ]
 
-    # for cargo
-    cargo-edit
+    # Gnome
+    [ gnomeExtensions.appindicator ]
 
-    # for nix
-    nixpkgs-fmt
-
-    # extensions
-    dislocker
-
-    # fonts
-    # for sublime text writer profile
-    ibm-plex
-    # for telegram
-    open-sans
+    # Drivers / Extensions
+    [
+      # used for accessing the shared partition
+      dislocker
+    ]
   ];
 }

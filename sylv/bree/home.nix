@@ -1,8 +1,9 @@
 { config, pkgs, ... }: {
 
   imports = [
+    ./config.nix
     ./packages.nix
-    ./directories.nix
+    ./programs.nix
   ];
 
   home = {

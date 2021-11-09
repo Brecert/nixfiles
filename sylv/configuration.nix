@@ -16,7 +16,7 @@
   hardware.bluetooth.enable = true;
 
   ## Nvidia configuration
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.prime = {
     offload.enable = true;
 
@@ -139,7 +139,6 @@
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-
     # use the unstable version of nix
     package = pkgs.nixUnstable;
 
@@ -148,7 +147,10 @@
       experimental-features = nix-command flakes
     '';
 
-    useSandbox = false;
+    # automatically optimize the store
+    autoOptimiseStore = true;
+
+    # useSandbox = false;
   };
 
   # Programs and Services configuration
@@ -163,8 +165,6 @@
     xf86_input_wacom
     fceux
     wineWowPackages.stable
-
-    gnomeExtensions.appindicator
   ];
 
   programs.fish.enable = true;
