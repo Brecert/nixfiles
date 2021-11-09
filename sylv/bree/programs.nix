@@ -1,6 +1,6 @@
 { conifg, lib, pkgs, ... }:
 lib.mkMerge [
-  
+
   # Git
   {
     programs.git = {
@@ -46,7 +46,11 @@ lib.mkMerge [
         enable = true;
         profiles.primary = {
           isDefault = true;
-          extraConfig = builtins.readFile (firefox-gnome-theme + "/configuration/user.js");
+
+          settings = {
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          };
+
           userChrome = ''
             @import "${firefox-gnome-theme}/userChrome.css"
           '';
@@ -62,12 +66,12 @@ lib.mkMerge [
 
       # use fish shell when running `nix develop`
       interactiveShellInit = ''
-        ${lib.getBin pkgs.any-nix-shell} fish --info-right | source
+        ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
       '';
 
       shellAliases = with pkgs; {
-        l = "${lib.getBin exa} -l";
-        ls = "${lib.getBin exa}";
+        l = "${pkgs.exa}/bin/exa -l";
+        ls = "${pkgs.exa}/bin/exa";
         pd = "prevd";
       };
     };
