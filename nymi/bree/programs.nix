@@ -1,5 +1,9 @@
 { conifg, lib, pkgs, ... }:
 lib.mkMerge [
+  # GNOME Keyring
+  {
+    services.gnome-keyring.enable = true;
+  }
 
   # Git
   {
@@ -11,17 +15,13 @@ lib.mkMerge [
 
       signing = {
         signByDefault = true;
-        key = "1B2E56B9EC985B96";
+        key = "3D2C64AC1898ED49";
+        # todo: key
       };
-
-      includes = [{
-        contents.user.name = "bree";
-        condition = "gitdir:~/Code/projects/revolt/";
-      }];
 
       extraConfig = {
         init.defaultBranch = "main";
-        credential.helper = "store"; # todo: fix this
+        credential.helper = "gnome-keyring";
 
         url = {
           # nix consistency, not really gonna use this
@@ -35,10 +35,10 @@ lib.mkMerge [
   (
     let
       firefox-gnome-theme = pkgs.fetchFromGitHub {
-        owner = "brecert";
+        owner = "rafaelmardojai";
         repo = "firefox-gnome-theme";
-        rev = "0b4065ff35e5034cd096fef8f3a5981dd751a48e";
-        hash = "sha256-kyfzjwVp73xIofJ+1CxLocqSb9Or5nZjH123yNBFHoY=";
+        rev = "2f2e77ceea9cde12b7ea6a78f50d4fe9440918e3";
+        hash = "sha256-fmf4ioSbGAocIrILEQLGBXPakjqBHq1M/1xhDafVGSk=";
       };
     in
     {
@@ -77,34 +77,10 @@ lib.mkMerge [
     };
   }
 
-  # Starship
+  # VSCode
   {
-    programs.starship = {
+    programs.vscode = {
       enable = true;
-      enableFishIntegration = true;
     };
-  }
-
-  # Alacritty
-  {
-    programs.alacritty = {
-      enable = true;
-      settings = {
-        font.size = 10;
-        window = {
-          padding = {
-            x = 5;
-            y = 5;
-          };
-        };
-      };
-    };
-  }
-
-  # Emacs
-  # todo: put the witchmacs config here
-  {
-    programs.emacs.enable = true;
-    services.emacs.enable = true;
   }
 ]

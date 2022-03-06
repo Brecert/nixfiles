@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 lib.mkMerge [
 
   # XDG
@@ -26,5 +26,12 @@ lib.mkMerge [
   # Fonts
   {
     fonts.fontconfig.enable = true;
+  }
+
+  # GTK
+  {
+    gtk.enable = true;
+    gtk.theme.package = pkgs.gnome.gnome-themes-extra;
+    gtk.theme.name = "Adwaita-dark";
   }
 ]
