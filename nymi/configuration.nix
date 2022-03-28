@@ -24,12 +24,18 @@
   networking.interfaces.enp42s0.useDHCP = true;
   networking.interfaces.wlp5s0.useDHCP = true;
 
+  # Enable .local
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  services.xserver.libinput.mouse.accelProfile = "flat";
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -45,6 +51,7 @@
     pulse.enable = true;
     alsa.enable = true;
   };
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bree = {

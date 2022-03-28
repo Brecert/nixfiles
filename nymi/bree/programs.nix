@@ -59,6 +59,19 @@ lib.mkMerge [
     }
   )
 
+  # Chromium
+  {
+    programs.chromium = {
+      enable = true;
+      package = pkgs.ungoogled-chromium;
+      extensions = [
+        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
+        { id = "lcmbpoclaodbgkbjafnkbbinogcbnjih"; } # lesspass
+        { id = "clngdbkpkpeebahjckkjfobafhncgmne"; } # stylus
+      ];
+    };
+  }
+
   # Fish
   {
     programs.fish = {
