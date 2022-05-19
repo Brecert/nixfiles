@@ -9,6 +9,7 @@ lib.mkMerge [
   {
     programs.git = {
       enable = true;
+      package = pkgs.gitFull;
 
       userEmail = "me@bree.dev";
       userName = "brecert";
@@ -21,7 +22,7 @@ lib.mkMerge [
 
       extraConfig = {
         init.defaultBranch = "main";
-        credential.helper = "gnome-keyring";
+        credential.helper = "libsecret";
 
         url = {
           # nix consistency, not really gonna use this
