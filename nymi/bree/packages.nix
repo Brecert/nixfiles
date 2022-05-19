@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     nixpkgs-fmt
+    gnome.gnome-boxes
     
     polymc
     tdesktop
