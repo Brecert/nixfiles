@@ -2,7 +2,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -11,7 +12,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
   boot.supportedFilesystems = [ "ntfs" ];
-  
+
   hardware.bluetooth.enable = true;
 
   networking.hostName = "nymi";
@@ -79,7 +80,7 @@
     };
   };
 
-	nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     micro
