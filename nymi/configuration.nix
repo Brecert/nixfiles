@@ -99,6 +99,16 @@
       noto-fonts-emoji
     ];
 
+    fontconfig = {
+      antialias = true;
+      useEmbeddedBitmaps = false;
+      hinting.enable = true;
+      subpixel = {
+        rgba = "rgb";
+        lcdfilter = "default";
+      };
+    };
+
     fontconfig.defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace = [
@@ -110,7 +120,7 @@
         "Noto Sans Mono CJK TC"
       ];
       sansSerif = [
-        "Inter"
+        # "Inter"
         "Noto Sans"
         "Noto Sans CJK JP"
         "Noto Sans CJK KR"

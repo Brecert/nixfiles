@@ -38,8 +38,8 @@ lib.mkMerge [
       firefox-gnome-theme = pkgs.fetchFromGitHub {
         owner = "rafaelmardojai";
         repo = "firefox-gnome-theme";
-        rev = "2f2e77ceea9cde12b7ea6a78f50d4fe9440918e3";
-        hash = "sha256-fmf4ioSbGAocIrILEQLGBXPakjqBHq1M/1xhDafVGSk=";
+        rev = "183b5f0b3d056646faf720abd720ba76da28a736";
+        hash = "sha256-xAdzxjdLuGxgtM/eKTkccpLkAebLun5wD2dlrfgT8Us=";
       };
     in
     {
@@ -50,6 +50,9 @@ lib.mkMerge [
 
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            "svg.context-properties.content.enabled" = true;
+            "gnomeTheme.hideSingleTab" = true;
+            "gnomeTheme.normalWidthTabs" = false;
           };
 
           userChrome = ''
@@ -70,6 +73,15 @@ lib.mkMerge [
         { id = "lcmbpoclaodbgkbjafnkbbinogcbnjih"; } # lesspass
         { id = "clngdbkpkpeebahjckkjfobafhncgmne"; } # stylus
       ];
+    };
+  }
+
+  # nix-index
+  {
+    programs.nix-index = {
+      enable = true;
+      enableFishIntegration = true;
+      enableBashIntegration = true;
     };
   }
 

@@ -17,6 +17,8 @@
     nixosConfigurations.nymi = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        # compatability with old nix
+        { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
         home-manager.nixosModules.home-manager
         ./nymi/configuration.nix
       ];

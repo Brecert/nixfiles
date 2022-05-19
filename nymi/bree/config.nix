@@ -5,6 +5,7 @@ lib.mkMerge [
   (
     let home = config.home.homeDirectory; in
     {
+      xdg.enable = true;
       xdg.userDirs = {
         enable = true;
         desktop = "${home}/Desktop";
