@@ -17,6 +17,7 @@
 
   networking.hostName = "nymi";
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = false;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -57,7 +58,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bree = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.fish;
   };
 
