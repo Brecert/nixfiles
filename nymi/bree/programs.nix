@@ -38,8 +38,8 @@ lib.mkMerge [
       firefox-gnome-theme = pkgs.fetchFromGitHub {
         owner = "rafaelmardojai";
         repo = "firefox-gnome-theme";
-        rev = "183b5f0b3d056646faf720abd720ba76da28a736";
-        hash = "sha256-xAdzxjdLuGxgtM/eKTkccpLkAebLun5wD2dlrfgT8Us=";
+        rev = "v106";
+        hash = "sha256-10kQ44U1RSr+6M47U6JuhuteSWHMXFLL4g/oeFubhus=";
       };
     in
     {
