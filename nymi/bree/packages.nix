@@ -4,8 +4,8 @@
   home.packages = with pkgs; [
     nixpkgs-fmt
 
-    polymc
     tdesktop
+    prismlauncher
     sublime-merge
 
     gnome.gnome-boxes
