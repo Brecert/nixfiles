@@ -1,4 +1,4 @@
-{ nixpkgs, pkgs, ... }:
+{ nixpkgs, pkgs, config, ... }:
 
 {
   imports =
@@ -20,12 +20,31 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
 
+  boot.extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
+  boot.kernelModules = [ "8812au" ];
+
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp42s0.useDHCP = true;
   networking.interfaces.wlp5s0.useDHCP = true;
+
+
+  # Disable 802.11n
+  # Enable software encryption
+  # Enable the transmission antenna aggregation
+  # Disable bluetooth coexistence
+  # boot.extraModprobeConfig = ''
+  #   options iwlwifi 11n_disable=1
+  #   options iwlwifi swcrypto=1
+  #   options iwlwifi 11n_disable=8
+  #   options iwlwifi bt_coex_active=0
+  # '';
+
+  # networking.wireless.extraConfig = "
+  #   freq_list=2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484
+  # ";
 
   # Enable .local
   services.avahi.enable = true;

@@ -1,11 +1,7 @@
+# sudo nixos-rebuild switch --flake .#
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations.nymi = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
