@@ -12,7 +12,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
   boot.supportedFilesystems = [ "ntfs" ];
-  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_2;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_2;
 
   hardware.bluetooth.enable = false;
   hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
@@ -21,33 +21,12 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
 
-  # boot.blacklistedKernelModules = [ "rtl8821ae" ];
-  # boot.extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
-  # boot.kernelModules = [ "rtl8812au" ];
-  # boot.extraModulePackages = [
-  #   config.boot.kernelPackages.rtlwifi_new
-  #   config.boot.kernelPackages.rtl8812au
-  # ];
-  # boot.kernelModules = [ "rtl_8812ae" "rtl_8812au" "rtl8812ae" "rtl8812au"  ];
-
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   # networking.useDHCP = false;
   networking.interfaces.enp42s0.useDHCP = true;
   networking.interfaces.wlp5s0.useDHCP = true;
-
-
-  # Disable 802.11n
-  # Enable software encryption
-  # Enable the transmission antenna aggregation
-  # Disable bluetooth coexistence
-  # boot.extraModprobeConfig = ''/nix/store/gk0q8sj64fvnc6aci206mlp68iwx3xsr-source.drv
-  #   options iwlwifi 11n_disable=1
-  #   options iwlwifi swcrypto=1
-  #   options iwlwifi 11n_disable=8
-  #   options iwlwifi bt_coex_active=0
-  # '';
 
   # networking.wireless.extraConfig = "
   #   freq_list=2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484

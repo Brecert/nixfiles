@@ -39,7 +39,6 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   
   # for wifi
-  hardware.enableAllFirmware = true;
+  # hardware.enableAllFirmware = true;
   hardware.enableRedistributableFirmware = true;
-  boot.kernelPackages = lib.mkIf (lib.versionOlder pkgs.linux.version "5.16") (lib.mkDefault pkgs.linuxPackages_latest);
 }
