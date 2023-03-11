@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    cachix
     nixpkgs-fmt
 
     tdesktop
@@ -17,5 +18,12 @@
     gnomeExtensions.desktop-cube
     gnomeExtensions.pano
     gnomeExtensions.vitals
+
+    # swift core libraries
+    # swift
+    # swiftPackages.swiftpm
+    # swiftPackages.Dispatch
+    # swiftPackages.Foundation
+    # swiftPackages.XCTest
   ];
 }
