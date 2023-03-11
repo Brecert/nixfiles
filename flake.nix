@@ -14,17 +14,29 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      packages = outputs.packages.x86_64-linux;
+      inherit (pkgs) callPackage;
     in
     {
       nixosConfigurations.nymi = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs outputs; };
+        
+        specialArgs = {
+          inherit inputs outputs packages; 
+        };
+
         modules = [
           home-manager.nixosModules.home-manager
           ./nymi/configuration.nix
         ];
       };
 
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      packages.x86_64-linux = {
+        odin = callPackage ./packages/odin { };
+        ols = callPackage ./packages/ols { inherit (pkgs); inherit (packages) odin; };
+      };
+
+      formatter.x86_64-linux = pkgs.nixpkgs-fmt;
     };
 }

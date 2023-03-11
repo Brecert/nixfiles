@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, packages, ... }:
 
 {
   home.packages = with pkgs; [
@@ -18,6 +18,10 @@
     gnomeExtensions.desktop-cube
     gnomeExtensions.pano
     gnomeExtensions.vitals
+    
+    # odin
+    packages.ols
+    packages.odin
 
     # swift core libraries
     # swift
