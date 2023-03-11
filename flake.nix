@@ -1,5 +1,7 @@
 # sudo nixos-rebuild switch --flake .#
 {
+  description = "My NixOS config";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -9,15 +11,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations.nymi = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        # compatability with old nix
-        { nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; }
-        home-manager.nixosModules.home-manager
-        ./nymi/configuration.nix
-      ];
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+    let
+      inherit (self) outputs;
+    in
+    {
+      nixosConfigurations.nymi = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          home-manager.nixosModules.home-manager
+          ./nymi/configuration.nix
+        ];
+      };
     };
-  };
 }

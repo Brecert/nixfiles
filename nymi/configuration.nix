@@ -1,10 +1,12 @@
-{ nixpkgs, pkgs, config, ... }:
+{ nixpkgs, pkgs, config, inputs, ... }:
 
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # Include the nix configuration
+      ./nix-configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -71,23 +73,6 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.bree = import ./bree/home.nix;
-
-
-  nix = {
-    # use the unstable version of nix
-    package = pkgs.nixUnstable;
-
-    # enable the flake feature
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-
-    settings = {
-      auto-optimise-store = true;
-    };
-  };
-
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     micro
