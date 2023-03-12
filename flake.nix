@@ -24,6 +24,8 @@
         
         specialArgs = {
           inherit inputs outputs packages; 
+          # todo: impure derivation or some automatic alternative to this
+          flakePath = "/home/bree/Documents/nixfiles";
         };
 
         modules = [

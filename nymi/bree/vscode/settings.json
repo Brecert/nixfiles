@@ -1,0 +1,8 @@
+{
+  "window.menuBarVisibility": "toggle",
+  "ols.server.path": "/nix/store/8wp0k56dzl016xfk910hn3w066sgwvn3-ols-nightly/bin/ols",
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "GNOME dark",
+  "workbench.colorTheme": "GNOME dark",
+  "workbench.preferredLightColorTheme": "GitHub Light"
+}

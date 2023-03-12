@@ -1,4 +1,5 @@
-{ conifg, lib, pkgs, ... }:
+{ config, lib, pkgs, packages, flakePath, ... }:
+
 lib.mkMerge [
   # GNOME Keyring
   {
@@ -107,6 +108,26 @@ lib.mkMerge [
   {
     programs.vscode = {
       enable = true;
+      # userSettings = {
+      #   "ols.server.path" = "${packages.ols}/bin/ols";
+      # };
     };
+
+    # set `ols.server.path` to the store path automatically
+    # this isn't pure but it should be fine
+    home.activation.vscode-user-settings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      $DRY_RUN_CMD ${pkgs.yq-go}/bin/yq --inplace --output-format=json \
+        '.["ols.server.path"] = "${packages.ols}/bin/ols"' \
+        "${flakePath}/nymi/bree/vscode/settings.json"
+
+      $DRY_RUN_CMD ln -sf \
+        "${flakePath}/nymi/bree/vscode/settings.json" \
+        "${config.xdg.configHome}/Code/User/settings.json"
+    '';
+
+    # VSCodium instead of Code if VSCodium
+    # home.file."${config.xdg.configHome}/Code/User/settings.json" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink ./vscode/settings.json;
+    # };
   }
 ]

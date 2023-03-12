@@ -1,4 +1,4 @@
-{ nixpkgs, pkgs, config, inputs, outputs, packages, ... }:
+{ nixpkgs, pkgs, config, specialArgs, ... }:
 
 {
   imports =
@@ -73,7 +73,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.bree = import ./bree/home.nix;
-  home-manager.extraSpecialArgs = { inherit inputs outputs packages; };
+  home-manager.extraSpecialArgs = specialArgs;
 
   environment.systemPackages = with pkgs; [
     micro
