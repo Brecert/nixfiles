@@ -4,6 +4,7 @@
     ./config.nix
     ./packages.nix
     ./programs.nix
+    ../../modules/home/vscode.nix
   ];
 
   home = {

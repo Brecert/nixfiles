@@ -104,26 +104,27 @@ lib.mkMerge [
     };
   }
 
+  # Direnv
+  # {
+  #   programs.direnv = {
+  #     enable = true;
+  #     nix-direnv.enable = true;
+  #   };
+  # }
+
   # VSCode
   {
     programs.vscode = {
       enable = true;
-      # userSettings = {
-      #   "ols.server.path" = "${packages.ols}/bin/ols";
-      # };
     };
 
-    # set `ols.server.path` to the store path automatically
-    # this isn't pure but it should be fine
-    home.activation.vscode-user-settings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      $DRY_RUN_CMD ${pkgs.yq-go}/bin/yq --inplace --output-format=json \
-        '.["ols.server.path"] = "${packages.ols}/bin/ols"' \
-        "${flakePath}/nymi/bree/vscode/settings.json"
-
-      $DRY_RUN_CMD ln -sf \
-        "${flakePath}/nymi/bree/vscode/settings.json" \
-        "${config.xdg.configHome}/Code/User/settings.json"
-    '';
+    home-modules.vscode = {
+      outOfStoreUserSettings = "${flakePath}/nymi/bree/vscode/settings.json";
+      overrideUserSettings = {
+        "ols.server.path" = "${packages.ols}/bin/ols";
+        "sourcekit-lsp.serverPath" = "${pkgs.sourcekit-lsp}/bin/sourcekit-lsp";
+      };
+    };
 
     # VSCodium instead of Code if VSCodium
     # home.file."${config.xdg.configHome}/Code/User/settings.json" = {

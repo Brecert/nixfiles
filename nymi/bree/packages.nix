@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     cachix
     nixpkgs-fmt
+    rnix-lsp
 
     tdesktop
     prismlauncher
@@ -23,7 +24,8 @@
     packages.ols
     packages.odin
 
-    # swift core libraries
+    # swift
+    sourcekit-lsp
     # swift
     # swiftPackages.swiftpm
     # swiftPackages.Dispatch
