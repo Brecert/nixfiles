@@ -7,7 +7,7 @@
     rnix-lsp
 
     tdesktop
-    prismlauncher
+    packages.prismlauncher
     sublime-merge
 
     gnome.gnome-boxes
@@ -25,7 +25,7 @@
     packages.odin
 
     # swift
-    sourcekit-lsp
+    # sourcekit-lsp
     # swift
     # swiftPackages.swiftpm
     # swiftPackages.Dispatch

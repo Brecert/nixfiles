@@ -135,6 +135,9 @@
       ];
     };
   };
+  
+  # needed to be enabled for default shell
+  programs.fish.enable = true;
 
   programs.gnupg.agent = {
     enable = true;

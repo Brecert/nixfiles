@@ -39,8 +39,8 @@ lib.mkMerge [
       firefox-gnome-theme = pkgs.fetchFromGitHub {
         owner = "rafaelmardojai";
         repo = "firefox-gnome-theme";
-        rev = "v110";
-        hash = "sha256-2KKntUo0uYCXZrnaB5Q7bf97+tUL3UiuyDtTlyjbXFo=";
+        rev = "v112";
+        hash = "sha256-AeRlezeG5jBcRN6IwVxXdK+zv9OlPdoNJkpJ1Lha5Ho=";
       };
     in
     {
@@ -122,7 +122,8 @@ lib.mkMerge [
       outOfStoreUserSettings = "${flakePath}/nymi/bree/vscode/settings.json";
       overrideUserSettings = {
         "ols.server.path" = "${packages.ols}/bin/ols";
-        "sourcekit-lsp.serverPath" = "${pkgs.sourcekit-lsp}/bin/sourcekit-lsp";
+        # broken for now
+        # "sourcekit-lsp.serverPath" = "${pkgs.sourcekit-lsp}/bin/sourcekit-lsp";
       };
     };
 

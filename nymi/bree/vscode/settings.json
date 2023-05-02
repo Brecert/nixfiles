@@ -1,6 +1,6 @@
 {
   "window.menuBarVisibility": "toggle",
-  "ols.server.path": "/nix/store/8wp0k56dzl016xfk910hn3w066sgwvn3-ols-nightly/bin/ols",
+  "ols.server.path": "/nix/store/7mhbimgjcl37id0xv5dzzlp31i1ayy7c-ols-nightly/bin/ols",
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "GNOME dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
