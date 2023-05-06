@@ -5,7 +5,6 @@
   "workbench.preferredDarkColorTheme": "GNOME dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "sourcekit-lsp.serverPath": "/nix/store/k72393j1yyli6qypjjvadbcb58fzsfh1-sourcekit-lsp-5.7.3/bin/sourcekit-lsp",
-  "workbench.colorTheme": "GitHub Dark",
   "nix.enableLanguageServer": true,
   "[typescriptreact]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
@@ -24,5 +23,6 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
-  }
+  },
+  "workbench.colorTheme": "GitHub Dark"
 }
