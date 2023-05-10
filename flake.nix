@@ -24,9 +24,9 @@
     {
       nixosConfigurations.nymi = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        
+
         specialArgs = {
-          inherit inputs outputs packages; 
+          inherit inputs outputs packages;
           # todo: impure derivation or some automatic alternative to this
           flakePath = "/home/bree/Documents/nixfiles";
         };
@@ -40,6 +40,7 @@
       packages.x86_64-linux = {
         odin = callPackage ./packages/odin { };
         ols = callPackage ./packages/ols { inherit (pkgs); inherit (packages) odin; };
+        ueviewer = callPackage ./packages/ueviewer { };
         prismlauncher = pkgs-prismlauncher.prismlauncher;
       };
 
