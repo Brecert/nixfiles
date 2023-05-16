@@ -1,6 +1,6 @@
 {
   "window.menuBarVisibility": "toggle",
-  "ols.server.path": "/nix/store/shp44aks2xwwavpjjskw8l5h3l4qi1qp-ols-nightly/bin/ols",
+  "ols.server.path": "/nix/store/d36nnswbppbn0hp8lh87vfvwd3lvgp7w-ols-nightly/bin/ols",
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "GNOME dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
@@ -16,7 +16,7 @@
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

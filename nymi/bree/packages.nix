@@ -7,7 +7,7 @@
     rnix-lsp
 
     tdesktop
-    packages.prismlauncher
+    prismlauncher
     sublime-merge
 
     gnome.gnome-boxes
