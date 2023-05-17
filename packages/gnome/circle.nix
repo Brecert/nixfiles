@@ -1,3 +1,4 @@
 { callPackage }: {
-  share-preview = callPackage ./share-preview {};
+  clairvoyant = callPackage ./clairvoyant { };
+  share-preview = callPackage ./share-preview { };
 }

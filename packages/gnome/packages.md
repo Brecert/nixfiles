@@ -38,9 +38,9 @@
 [ ] Boatswain (can't test, not really possible)
 [ ] Chess Clock
 [x] Citations
-[ ] Clairvoyant
-[ ] Collision
-[ ] Commit
+[x] Clairvoyant (under .#packages.gnome.circle.clairvoyant)
+[~] Collision
+[~] Commit
 [x] Cozy
 [x] Curtail
 [x] Decoder (under gnome-decoder)
@@ -50,10 +50,10 @@
 [x] Elastic
 [x] Emblem
 [x] Eyedropper
-[ ] File Shredder
+[x] File Shredder (under raider)
 [ ] Font Downloader
 [x] Fragments
-[ ] Graphor
+[x] Gaphor
 [x] Health
 [x] Identity
 [x] Junction
