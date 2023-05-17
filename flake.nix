@@ -16,7 +16,7 @@
       inherit (self) outputs;
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       packages = outputs.packages.x86_64-linux;
-      inherit (pkgs) callPackage;
+      inherit (pkgs) callPackage callPackages;
     in
     {
       nixosConfigurations.nymi = nixpkgs.lib.nixosSystem {
@@ -38,6 +38,7 @@
         odin = callPackage ./packages/odin { };
         ols = callPackage ./packages/ols { inherit (pkgs); inherit (packages) odin; };
         ueviewer = callPackage ./packages/ueviewer { };
+        gnome.circle = callPackages ./packages/gnome/circle.nix { };
       };
 
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;
