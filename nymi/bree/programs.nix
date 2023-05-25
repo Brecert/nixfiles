@@ -132,4 +132,17 @@ lib.mkMerge [
     #   source = config.lib.file.mkOutOfStoreSymlink ./vscode/settings.json;
     # };
   }
+
+  # OBS
+  # {
+  #   programs.obs-studio = {
+  #     enable = true;
+  #     plugins = with pkgs.obs-studio-plugins; [
+  #       wlrobs
+  #       obs-nvfbc
+  #       obs-vkcapture
+  #       obs-pipewire-audio-capture
+  #     ];
+  #   };
+  # }
 ]

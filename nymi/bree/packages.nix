@@ -10,6 +10,8 @@
     prismlauncher
     sublime-merge
 
+    packages.slippi-netplay
+
     gnome.gnome-boxes
     gnome.gnome-tweaks
 

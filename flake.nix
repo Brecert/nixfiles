@@ -4,6 +4,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    slippi.url = "path:flakes/slippi";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -11,11 +12,12 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-prismlauncher, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, slippi, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       packages = outputs.packages.x86_64-linux;
+      slippi-packags = slippi.packages.x86_64-linux;
       inherit (pkgs) callPackage callPackages;
     in
     {
@@ -35,6 +37,8 @@
       };
 
       packages.x86_64-linux = {
+        inherit (slippi-packags) slippi-netplay;
+
         odin = callPackage ./packages/odin { };
         ols = callPackage ./packages/ols { inherit (pkgs); inherit (packages) odin; };
         ueviewer = callPackage ./packages/ueviewer { };

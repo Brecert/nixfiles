@@ -78,7 +78,7 @@
 [x] Text Pieces
 [x] Video Trimmer
 [x] Warp
-[ ] Webfont kit Generator
+[~] Webfont kit Generator
 [x] Wike
 [ ] Workbench
 [ ] Zap
