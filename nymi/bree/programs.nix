@@ -96,7 +96,7 @@ lib.mkMerge [
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
       '';
 
-      shellAliases = with pkgs; {
+      shellAliases = {
         l = "${pkgs.exa}/bin/exa -l";
         ls = "${pkgs.exa}/bin/exa";
         pd = "prevd";
@@ -116,12 +116,25 @@ lib.mkMerge [
   {
     programs.vscode = {
       enable = true;
+
+      # mutableExtensionsDir = true;
+      extensions = with pkgs.vscode-extensions; [
+        rust-lang.rust-analyzer-nightly
+        denoland.vscode-deno
+        editorconfig.editorconfig
+        tamasfe.even-better-toml
+        github.github-vscode-theme
+        piousdeer.adwaita-theme
+        jnoortheen.nix-ide
+        esbenp.prettier-vscode
+      ];
     };
 
     home-modules.vscode = {
       outOfStoreUserSettings = "${flakePath}/nymi/bree/vscode/settings.json";
       overrideUserSettings = {
         "ols.server.path" = "${packages.ols}/bin/ols";
+        "nix.serverPath" = "${pkgs.nil}/bin/nil";
         # broken for now
         # "sourcekit-lsp.serverPath" = "${pkgs.sourcekit-lsp}/bin/sourcekit-lsp";
       };

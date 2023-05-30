@@ -22,7 +22,7 @@ in
   home.packages = with pkgs; [
     cachix
     nixpkgs-fmt
-    rnix-lsp
+    nil
 
     tdesktop
     prismlauncher
@@ -46,6 +46,11 @@ in
     # odin
     packages.ols
     packages.odin
+
+    # from fenix overlay
+    fenix.default.toolchain
+    rust-analyzer-nightly
+    clang
 
     # swift
     # sourcekit-lsp

@@ -24,8 +24,9 @@
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-  "workbench.colorTheme": "GitHub Dark",
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "workbench.colorTheme": "GitHub Dark",
+  "nix.serverPath": "/nix/store/sjdqb3yk3vkpks7gf551i8n4fl8kbyh3-nil-2023-05-09/bin/nil"
 }

@@ -6,18 +6,23 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     slippi.url = "path:flakes/slippi";
 
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, slippi, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, slippi, fenix, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       packages = outputs.packages.x86_64-linux;
-      slippi-packags = slippi.packages.x86_64-linux;
+      slippi-packages = slippi.packages.x86_64-linux;
       inherit (pkgs) callPackage callPackages;
     in
     {
@@ -31,16 +36,17 @@
         };
 
         modules = [
+          (_: { nixpkgs.overlays = [ fenix.overlays.default ]; })
           home-manager.nixosModules.home-manager
           ./nymi/configuration.nix
         ];
       };
 
       packages.x86_64-linux = {
-        inherit (slippi-packags) slippi-netplay;
+        inherit (slippi-packages) slippi-netplay;
 
         odin = callPackage ./packages/odin { };
-        ols = callPackage ./packages/ols { inherit (pkgs); inherit (packages) odin; };
+        ols = callPackage ./packages/ols { inherit (packages) odin; };
         ueviewer = callPackage ./packages/ueviewer { };
         gnome.circle = callPackages ./packages/gnome/circle.nix { };
         hexpat-lsp = callPackage ./packages/hexpat-lsp { };

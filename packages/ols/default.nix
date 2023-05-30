@@ -5,7 +5,7 @@
 , odin
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "ols";
   version = "nightly";
 
