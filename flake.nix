@@ -43,6 +43,7 @@
         ols = callPackage ./packages/ols { inherit (pkgs); inherit (packages) odin; };
         ueviewer = callPackage ./packages/ueviewer { };
         gnome.circle = callPackages ./packages/gnome/circle.nix { };
+        hexpat-lsp = callPackage ./packages/hexpat-lsp { };
       };
 
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;

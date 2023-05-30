@@ -1,5 +1,23 @@
 { config, lib, pkgs, packages, ... }:
 
+let
+  imhex-up = pkgs.imhex.overrideAttrs (final: prev: rec {
+    version = "1.29.0";
+
+    src = pkgs.fetchFromGitHub {
+      fetchSubmodules = true;
+      owner = "WerWolv";
+      repo = prev.pname;
+      rev = "v${version}";
+      hash = "sha256-dghyv7rpqGs5dt51ziAaeb/Ba7rGEcJ54AYKRJ2xXuk=";
+    };
+
+    cmakeFlags = prev.cmakeFlags ++ [
+      "DCREATE_PACKAGE=ON"
+    ];
+  });
+in
+
 {
   home.packages = with pkgs; [
     cachix
@@ -9,6 +27,9 @@
     tdesktop
     prismlauncher
     sublime-merge
+
+    imhex-up
+    packages.hexpat-lsp
 
     packages.slippi-netplay
 
