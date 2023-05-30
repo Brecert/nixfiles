@@ -3,7 +3,7 @@
   description = "My NixOS config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     slippi.url = "path:flakes/slippi";
 
     fenix = {

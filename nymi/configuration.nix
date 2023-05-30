@@ -14,7 +14,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
   boot.supportedFilesystems = [ "ntfs" ];
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_2;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_2;
 
   hardware.bluetooth.enable = false;
   hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
