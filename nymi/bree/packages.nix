@@ -19,45 +19,37 @@ let
 in
 
 {
-  home.packages = with pkgs; [
-    cachix
-    nixpkgs-fmt
-    nil
+  home.packages =
+    [ imhex-up ]
+    ++ (with pkgs; [
+      # Applications
+      tdesktop
+      prismlauncher
+      sublime-merge
 
-    tdesktop
-    prismlauncher
-    sublime-merge
+      # Nix Utils
+      nil
+      cachix
+      nixpkgs-fmt
 
-    imhex-up
-    packages.hexpat-lsp
+      # Gnome
+      gnome.gnome-boxes
+      gnome.gnome-tweaks
 
-    packages.slippi-netplay
+      gnomeExtensions.appindicator
+      gnomeExtensions.blur-my-shell
+      gnomeExtensions.ddterm
+      gnomeExtensions.desktop-cube
+      gnomeExtensions.pano
+      gnomeExtensions.vitals      
+    ])
+    ++ (with packages; [
+      # Applications
+      slippi.slippi-netplay
 
-    gnome.gnome-boxes
-    gnome.gnome-tweaks
-
-    gnomeExtensions.appindicator
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.ddterm
-    gnomeExtensions.desktop-cube
-    gnomeExtensions.pano
-    gnomeExtensions.vitals
-    
-    # odin
-    packages.ols
-    packages.odin
-
-    # from fenix overlay
-    fenix.default.toolchain
-    rust-analyzer-nightly
-    clang
-
-    # swift
-    # sourcekit-lsp
-    # swift
-    # swiftPackages.swiftpm
-    # swiftPackages.Dispatch
-    # swiftPackages.Foundation
-    # swiftPackages.XCTest
-  ];
+      # Utils / Tools
+      ols
+      odin
+      hexpat-lsp
+    ]);
 }

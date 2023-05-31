@@ -1,10 +1,23 @@
 # sudo nixos-rebuild switch --flake .#
 {
   description = "My NixOS config";
+  
+  nixConfig = {
+      substituters = [
+        "https://cache.nixos.org/"
+        "https://devenv.cachix.org"
+        "https://nix-community.cachix.org"
+      ];
+      
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+  };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-    slippi.url = "path:flakes/slippi";
 
     fenix = {
       url = "github:nix-community/fenix";
@@ -15,43 +28,38 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    slippi.url = "path:flakes/slippi";
   };
 
-  outputs = { self, nixpkgs, slippi, fenix, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, fenix, home-manager, slippi, ... }@inputs:
     let
-      inherit (self) outputs;
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      packages = outputs.packages.x86_64-linux;
-      slippi-packages = slippi.packages.x86_64-linux;
-      inherit (pkgs) callPackage callPackages;
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      slippi-pkgs = slippi.packages.${system};
     in
     {
       nixosConfigurations.nymi = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
 
         specialArgs = {
-          inherit inputs outputs packages;
+          inherit (self) outputs;
+          inherit inputs;
           # todo: impure derivation or some automatic alternative to this
+          # used for vscode module
           flakePath = "/home/bree/Documents/nixfiles";
+          
+          packages = self.packages.${system};
         };
 
         modules = [
-          (_: { nixpkgs.overlays = [ fenix.overlays.default ]; })
+          { nixpkgs.overlays = [ fenix.overlays.default ]; }
           home-manager.nixosModules.home-manager
           ./nymi/configuration.nix
         ];
       };
 
-      packages.x86_64-linux = {
-        inherit (slippi-packages) slippi-netplay;
-
-        odin = callPackage ./packages/odin { };
-        ols = callPackage ./packages/ols { inherit (packages) odin; };
-        ueviewer = callPackage ./packages/ueviewer { };
-        gnome.circle = callPackages ./packages/gnome/circle.nix { };
-        hexpat-lsp = callPackage ./packages/hexpat-lsp { };
-      };
-
-      formatter.x86_64-linux = pkgs.nixpkgs-fmt;
+      packages.${system} = pkgs.callPackages ./packages.nix { inherit system; slippi = slippi-pkgs; };
+      formatter.${system} = pkgs.nixpkgs-fmt;
     };
 }
