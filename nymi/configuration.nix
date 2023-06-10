@@ -1,4 +1,4 @@
-{ nixpkgs, pkgs, config, specialArgs, ... }:
+{ pkgs, specialArgs, ... }:
 
 {
   imports =
@@ -45,7 +45,7 @@
   i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-mozc ];
 
 
-  # Enable the X11 windowing system.f
+  # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -54,11 +54,13 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  
   # enable for appindicator support
   services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
 
   # Enable sound.
   security.rtkit.enable = true;
+  sound.enable = false;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
@@ -66,6 +68,7 @@
     pulse.enable = true;
     alsa.enable = true;
     jack.enable = true;
+    wireplumber.enable = true;
   };
 
 
