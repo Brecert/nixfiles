@@ -10,6 +10,6 @@
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-old = nixpkgs-old.legacyPackages.${system};
   in {
-    packages.${system}.slippi-netplay = pkgs-old.callPackage ./slippi-netplay { inherit (pkgs) makeDesktopItem; };
+    packages.${system}.slippi-online = pkgs-old.callPackage ./slippi-online { inherit (pkgs) makeDesktopItem; };
   };
 }

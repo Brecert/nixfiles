@@ -45,7 +45,7 @@ in
     ])
     ++ (with packages; [
       # Applications
-      slippi.slippi-netplay
+      slippi.slippi-online
 
       # Utils / Tools
       ols
