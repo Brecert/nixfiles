@@ -7,13 +7,13 @@
   "sourcekit-lsp.serverPath": "/nix/store/k72393j1yyli6qypjjvadbcb58fzsfh1-sourcekit-lsp-5.7.3/bin/sourcekit-lsp",
   "nix.enableLanguageServer": true,
   "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

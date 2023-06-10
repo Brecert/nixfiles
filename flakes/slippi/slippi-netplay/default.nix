@@ -5,7 +5,9 @@
 , makeDesktopItem
 , makeWrapper
 , copyDesktopItems
-, pkgs
+, cmake
+, wrapGAppsHook
+, iconConvTools
 # Dolphin
 , vulkan-loader
 , xdg_utils
@@ -46,13 +48,13 @@ let
   # it's like this for faster iteration
   dolphin-emu = stdenv.mkDerivation rec {
     pname = "dolphin-emu";
-    version = "3.0.4";
+    version = "3.1.0";
 
     src = fetchFromGitHub {
       owner = "project-slippi";
       repo = "Ishiiruka";
-      rev = "v3.0.4";
-      sha256 = "sha256-8zORxpbeRtn7Xrb2NwYTuSsw3m9CWe1v0LBT4Du29F4=";
+      rev = "v${version}";
+      sha256 = "sha256-VE9cHETk0fVEuHTAyetB26cP6+lRrImr+ZpRTD73zTE=";
     };
 
     cmakeFlags = [
@@ -68,14 +70,14 @@ let
       "-DGTK2_INCLUDE_DIRS=${gtk2}/lib/gtk-2.0"
     ];
 
-    nativeBuildInputs = with pkgs; [
+    nativeBuildInputs = [
       cmake
       gnumake
       pkg-config
       wrapGAppsHook
     ];
 
-    buildInputs = with pkgs; [
+    buildInputs = [
       bluez
       curl
       enet
@@ -127,7 +129,7 @@ let
     sha256 = "sha256-SHIrMerIkvORKY1knRnFZr2NKny+3MVgyjKNHapo9Os=";
   };
 in
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "slippi-netplay";
   version = "3.0.4";
 
@@ -136,8 +138,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     makeWrapper
     copyDesktopItems
-    pkgs.tree
-    pkgs.iconConvTools
+    iconConvTools
   ];
 
   desktopItems = [

@@ -45,7 +45,7 @@
   i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-mozc ];
 
 
-  # Enable the X11 windowing system.
+  # Enable the X11 windowing system.f
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -58,12 +58,14 @@
   services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
 
   # Enable sound.
-  sound.enable = true;
+  security.rtkit.enable = true;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
+    audio.enable = true;
     pulse.enable = true;
     alsa.enable = true;
+    jack.enable = true;
   };
 
 
