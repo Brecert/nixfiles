@@ -17,7 +17,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/caac0eb6bdcad0b32cb2522e03e4002c8975c62e";
 
     fenix = {
       url = "github:nix-community/fenix";

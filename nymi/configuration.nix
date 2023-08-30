@@ -14,7 +14,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
   boot.supportedFilesystems = [ "ntfs" ];
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_3;
 
   hardware.bluetooth.enable = false;
   hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
@@ -90,9 +89,9 @@
   ];
 
   fonts = {
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
 
-    fonts = with pkgs; [
+    packages = with pkgs; [
       inter
       fira-code
       fira-code-symbols

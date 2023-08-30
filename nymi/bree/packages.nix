@@ -17,7 +17,7 @@
       python311Packages.pyside6
       
       qt6.full
-      qtcreator-qt6
+      qtcreator
       
       qgnomeplatform-qt6
       adwaita-qt6

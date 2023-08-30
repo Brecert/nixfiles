@@ -12,8 +12,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "DanielGavin";
     repo = "ols";
-    rev = "2b0dccaa496fd809e36e7d979995e843bca28bfb";
-    hash = "sha256-DWcQinFqSomDQyxAi60x9mXVT2JzrQJUi9qisVOlueo=";
+    rev = "a72ac2941a1a54e05b4051a00ca25b0b3822b1c6";
+    hash = "sha256-8U/MHaVQDXWhhUqVSZvMu3JrVQpjYhmEIXwqyh9ipyE=";
   };
 
   nativeBuildInputs = [
