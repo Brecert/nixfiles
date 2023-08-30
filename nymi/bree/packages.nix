@@ -9,6 +9,19 @@
       sublime-merge
       imhex
 
+      # bnnuychat development (temporary)
+      clang
+      rustup
+      
+      python311
+      python311Packages.pyside6
+      
+      qt6.full
+      qtcreator-qt6
+      
+      qgnomeplatform-qt6
+      adwaita-qt6
+
       # Nix Utils
       nil
       cachix
@@ -27,7 +40,7 @@
     ])
     ++ (with packages; [
       # Applications
-      slippi.slippi-online
+      # slippi.slippi-online
 
       # Utils / Tools
       ols

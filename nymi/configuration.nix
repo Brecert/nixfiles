@@ -60,16 +60,16 @@
 
   # Enable sound.
   security.rtkit.enable = true;
-  sound.enable = false;
-  hardware.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    audio.enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-  };
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   audio.enable = true;
+  #   pulse.enable = true;
+  #   alsa.enable = true;
+  #   jack.enable = true;
+  #   wireplumber.enable = true;
+  # };
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
