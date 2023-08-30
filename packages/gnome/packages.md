@@ -35,18 +35,20 @@
 - [ ] Audio Sharing
 - [x] Authenticator
 - [x] Blanket
-- [ ] Boatswain (can't test, not really possible)
+- [x] Boatswain (can't test, not really possible)
+- [x] Cartridges
 - [ ] Chess Clock
 - [x] Citations
 - [x] Clairvoyant (under .#packages.gnome.circle.clairvoyant)
-- [~] Collision
-- [~] Commit
+- [x] Collision
+- [ ] Commit
 - [x] Cozy
 - [x] Curtail
 - [x] Decoder (under gnome-decoder)
 - [x] Deja Dup Backups (under deja-dup)
 - [x] Dialect
 - [x] Drawing
+- [x] Ear Tag (under eartag)
 - [x] Elastic
 - [x] Emblem
 - [x] Eyedropper
@@ -65,8 +67,9 @@
 - [x] Mousai
 - [x] NewsFlash
 - [x] Obfuscate (under gnome-obfuscate)
+- [ ] Paperclip
 - [x] Pika Backup
-- [ ] Plots
+- [x] Plots
 - [x] Podcasts (under gnome-podcasts)
 - [x] Polari (under gnome.polari)
 - [x] Secrets (under gnome-secrets)
@@ -78,7 +81,7 @@
 - [x] Text Pieces
 - [x] Video Trimmer
 - [x] Warp
-- [~] Webfont kit Generator
+- [x] Webfont Kit Generator (under webfontkitgenerator)
 - [x] Wike
 - [ ] Workbench
 - [ ] Zap
