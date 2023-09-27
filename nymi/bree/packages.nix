@@ -8,6 +8,8 @@
       prismlauncher
       sublime-merge
       imhex
+      livecaptions
+      kooha
 
       # bnnuychat development (temporary)
       clang
@@ -40,7 +42,7 @@
     ])
     ++ (with packages; [
       # Applications
-      # slippi.slippi-online
+      slippi.slippi-online
 
       # Utils / Tools
       ols

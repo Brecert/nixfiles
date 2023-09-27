@@ -29,6 +29,8 @@
   networking.interfaces.enp42s0.useDHCP = true;
   networking.interfaces.wlp5s0.useDHCP = true;
 
+  networking.nameservers = ["1.1.1.1" "8.8.8.8"];
+
   # networking.wireless.extraConfig = "
   #   freq_list=2412 2417 2422 2427 2432 2437 2442 2447 2452 2457 2462 2467 2472 2484
   # ";
