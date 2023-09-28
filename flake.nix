@@ -19,6 +19,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/caac0eb6bdcad0b32cb2522e03e4002c8975c62e";
 
+    tower-unite-cache = {
+      url = "github:brecert/tower-unite-cache";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,11 +37,12 @@
     slippi.url = "path:flakes/slippi";
   };
 
-  outputs = { self, nixpkgs, fenix, home-manager, slippi, ... }@inputs:
+  outputs = { self, nixpkgs, fenix, home-manager, slippi, tower-unite-cache, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       slippi-pkgs = slippi.packages.${system};
+      tower-unite-cache-pkgs = tower-unite-cache.packages.${system};
     in
     {
       nixosConfigurations.nymi = nixpkgs.lib.nixosSystem {
@@ -59,7 +65,12 @@
         ];
       };
 
-      packages.${system} = pkgs.callPackages ./packages.nix { inherit system; slippi = slippi-pkgs; };
+      packages.${system} = pkgs.callPackages ./packages.nix {
+        inherit system; 
+        slippi = slippi-pkgs;
+        tower-unite-cache = tower-unite-cache-pkgs;
+      };
+      
       formatter.${system} = pkgs.nixpkgs-fmt;
     };
 }

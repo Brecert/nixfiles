@@ -4,11 +4,13 @@
 # required inputs
 , system
 , slippi
+, tower-unite-cache
 }:
 
 let 
   self = {
     inherit slippi;
+    inherit (tower-unite-cache) tower-unite-cache tower-unite-cache-thumbnailer;
 
     odin = callPackage ./packages/odin { };
     ols = callPackage ./packages/ols { odin = self.odin; };

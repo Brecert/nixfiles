@@ -48,5 +48,6 @@
       ols
       odin
       hexpat-lsp
+      tower-unite-cache-thumbnailer
     ]);
 }
