@@ -100,6 +100,7 @@ lib.mkMerge [
         l = "${pkgs.exa}/bin/exa -l";
         ls = "${pkgs.exa}/bin/exa";
         pd = "prevd";
+        files = "nautilus";
       };
     };
   }

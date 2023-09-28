@@ -174,11 +174,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1695796432,
-        "narHash": "sha256-/+FbgIMUmxlywkhQoFQ6EEDhAQbo8dWq0V19NjxNcR8=",
+        "lastModified": 1695881415,
+        "narHash": "sha256-YEwMA/UyAPqDZ4t/iN/LVDS+RW9TU1zXZDfd6/YN1so=",
         "owner": "brecert",
         "repo": "tower-unite-cache",
-        "rev": "fc0fb44fb5bc591165683c4aee4e37a94af3fe22",
+        "rev": "8c2fd31bd68d5fa440765572da4d99daa4b836f2",
         "type": "github"
       },
       "original": {

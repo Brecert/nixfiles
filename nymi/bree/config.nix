@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, packages, ... }:
 
 lib.mkMerge [
 
@@ -22,6 +22,8 @@ lib.mkMerge [
           XDG_CACHE_HOME = "${home}/.cache";
         };
       };
+
+      xdg.dataFile."sushi".source = "${packages.tower-unite-cache-thumbnailer}/share/sushi";
     }
   )
 
