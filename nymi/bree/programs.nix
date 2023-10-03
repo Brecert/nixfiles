@@ -136,8 +136,6 @@ lib.mkMerge [
       overrideUserSettings = {
         "ols.server.path" = "${packages.ols}/bin/ols";
         "nix.serverPath" = "${pkgs.nil}/bin/nil";
-        # broken for now
-        # "sourcekit-lsp.serverPath" = "${pkgs.sourcekit-lsp}/bin/sourcekit-lsp";
       };
     };
 

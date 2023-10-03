@@ -10,6 +10,7 @@
       imhex
       livecaptions
       kooha
+      eyedropper
 
       # bnnuychat development (temporary)
       clang

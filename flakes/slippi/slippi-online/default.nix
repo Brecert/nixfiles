@@ -7,12 +7,12 @@
 
 let
   pname = "slippi-online";
-  version = "3.2.2";
+  version = "3.3.0";
   name = "${pname}-${version}";
 
   src = fetchurl {
     url = "https://github.com/project-slippi/Ishiiruka/releases/download/v${version}/Slippi_Online-x86_64.AppImage";
-    hash = "sha256-mXi0jwa93l/cfEU0XQXhCAb8YYL6EJR1iuRO4ichY4o=";
+    hash = "sha256-rI1SInSqyl6XqbwusfIdVokQORzDovL6P7G8l0x0s1E=";
   };
 
   icons = fetchurl {
