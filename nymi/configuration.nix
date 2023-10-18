@@ -90,6 +90,8 @@
     neofetch
   ];
 
+  services.flatpak.enable = true;
+
   fonts = {
     enableDefaultPackages = true;
 
