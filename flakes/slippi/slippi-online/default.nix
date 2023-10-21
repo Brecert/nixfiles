@@ -7,12 +7,12 @@
 
 let
   pname = "slippi-online";
-  version = "3.3.0";
+  version = "3.3.1";
   name = "${pname}-${version}";
 
   src = fetchurl {
     url = "https://github.com/project-slippi/Ishiiruka/releases/download/v${version}/Slippi_Online-x86_64.AppImage";
-    hash = "sha256-rI1SInSqyl6XqbwusfIdVokQORzDovL6P7G8l0x0s1E=";
+    hash = "sha256-XX02DcPW/lwExI6ZtxQHnyttkeA9BEy5ERH0g/NtEZY=";
   };
 
   icons = fetchurl {
@@ -31,8 +31,6 @@ let
     keywords = [ "Melee" ];
     startupNotify = false;
   };
-
-  appimageContents = appimageTools.extractType2 { inherit name src; };
 in
 
 appimageTools.wrapType2 rec {
