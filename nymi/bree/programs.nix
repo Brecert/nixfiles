@@ -97,8 +97,8 @@ lib.mkMerge [
       '';
 
       shellAliases = {
-        l = "${pkgs.exa}/bin/exa -l";
-        ls = "${pkgs.exa}/bin/exa";
+        l = "${pkgs.eza}/bin/eza -l";
+        ls = "${pkgs.eza}/bin/eza";
         pd = "prevd";
         files = "nautilus";
       };

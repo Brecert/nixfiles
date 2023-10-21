@@ -15,6 +15,9 @@
       # bnnuychat development (temporary)
       clang
       rustup
+      nodejs-18_x
+      nodePackages_latest.pnpm
+      deno
       
       python311
       python311Packages.pyside6
