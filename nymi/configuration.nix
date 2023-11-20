@@ -72,6 +72,15 @@
   #   wireplumber.enable = true;
   # };
 
+  services.earlyoom = {
+      enable = true;
+      freeSwapThreshold = 3;
+      freeMemThreshold = 3;
+      extraArgs = [
+          "-g" "--avoid '^(X|plasma\.*|\.gnome*)$'"
+          "--prefer '^(Tower\.exe|Resonite\.exe)$'"
+      ];
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bree = {
