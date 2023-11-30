@@ -49,11 +49,17 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    powerManagement.enable = true;
+    modesetting.enable = false;
+  };
+
 
   services.xserver.libinput.mouse.accelProfile = "flat";
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = false;
   services.xserver.desktopManager.gnome.enable = true;
   
   # enable for appindicator support
