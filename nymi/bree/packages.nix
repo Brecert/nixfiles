@@ -18,6 +18,9 @@
       nodejs-18_x
       nodePackages_latest.pnpm
       deno
+
+      # aoc (temporary)
+      ruby
       
       python311
       python311Packages.pyside6
