@@ -136,6 +136,7 @@ lib.mkMerge [
       overrideUserSettings = {
         "ols.server.path" = "${packages.ols}/bin/ols";
         "nix.serverPath" = "${pkgs.nil}/bin/nil";
+        "roc-lang.language-server.exe" = "${packages.roc-lang-server}/bin/roc_ls";
       };
     };
 

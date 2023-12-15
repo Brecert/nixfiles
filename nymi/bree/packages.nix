@@ -21,6 +21,7 @@
 
       # aoc (temporary)
       ruby
+      packages.roc
       
       python311
       python311Packages.pyside6

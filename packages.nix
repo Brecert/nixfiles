@@ -5,12 +5,16 @@
 , system
 , slippi
 , tower-unite-cache
+, roc-lang
 }:
 
 let 
   self = {
     inherit slippi;
     inherit (tower-unite-cache) tower-unite-cache tower-unite-cache-thumbnailer;
+
+    roc = roc-lang.cli;
+    roc-lang-server = roc-lang.lang-server;
 
     odin = callPackage ./packages/odin { };
     ols = callPackage ./packages/ols { odin = self.odin; };
