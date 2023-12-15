@@ -29,11 +29,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    roc-lang = {
-      url = "github:roc-lang/roc";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     tower-unite-cache = {
       url = "github:brecert/tower-unite-cache";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,12 +37,11 @@
     slippi.url = "path:flakes/slippi";
   };
 
-  outputs = { self, nixpkgs, fenix, home-manager, roc-lang, tower-unite-cache, slippi, ... }@inputs:
+  outputs = { self, nixpkgs, fenix, home-manager, tower-unite-cache, slippi, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       slippi-pkgs = slippi.packages.${system};
-      roc-lang-pkgs = roc-lang.packages.${system};
       tower-unite-cache-pkgs = tower-unite-cache.packages.${system};
     in
     {
@@ -74,7 +68,6 @@
       packages.${system} = pkgs.callPackages ./packages.nix {
         inherit system;
         slippi = slippi-pkgs;
-        roc-lang = roc-lang-pkgs;
         tower-unite-cache = tower-unite-cache-pkgs;
       };
       
