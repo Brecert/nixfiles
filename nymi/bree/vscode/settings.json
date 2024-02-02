@@ -32,5 +32,6 @@
   "editor.inlayHints.enabled": "offUnlessPressed",
   "roc-lang.language-server.exe": "/nix/store/c4j2pakqya4n99p84kdzmzk9qfyaja35-roc_lang_srv-0.0.1/bin/roc_ls",
   "python.analysis.autoImportCompletions": true,
+  "Lua.codeLens.enable": true,
   "workbench.colorTheme": "GitHub Dark"
 }

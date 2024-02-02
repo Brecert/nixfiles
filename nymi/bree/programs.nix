@@ -118,7 +118,7 @@ lib.mkMerge [
     programs.vscode = {
       enable = true;
 
-      # mutableExtensionsDir = true;
+      mutableExtensionsDir = false;
       extensions = with pkgs.vscode-extensions; [
         rust-lang.rust-analyzer-nightly
         denoland.vscode-deno
@@ -128,6 +128,7 @@ lib.mkMerge [
         piousdeer.adwaita-theme
         jnoortheen.nix-ide
         esbenp.prettier-vscode
+        sumneko.lua
       ];
     };
 
