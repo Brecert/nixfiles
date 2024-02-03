@@ -5,6 +5,7 @@
 , system
 , slippi
 , tower-unite-cache
+, ataraxiadev-nur
 }:
 
 let 
@@ -18,11 +19,11 @@ let
     hexpat-lsp = callPackage ./packages/hexpat-lsp { };
     fuchsia-cursor = callPackage ./packages/fuchsia-cursor { };
     
+    rpcs3 = ataraxiadev-nur.rpcs3;
     rusty-psn = callPackage ./packages/rusty-psn { withGui = false; };
     rusty-psn-gui = callPackage ./packages/rusty-psn { withGui = true; };
     
     gnome-circle = lib.recurseIntoAttrs (callPackages ./packages/gnome/circle.nix { });
-
   };
 in
   self

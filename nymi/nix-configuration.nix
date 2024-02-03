@@ -19,6 +19,8 @@
 
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
+
+      trusted-users = ["root" "@wheel"];
     };
   };
 

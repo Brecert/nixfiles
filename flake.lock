@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "ataraxiadev-nur": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1706902176,
+        "narHash": "sha256-hR6BssacScDkKM9UDMbDFqptscubRVaKoDfrVJEjdXk=",
+        "owner": "AtaraxiaSjel",
+        "repo": "nur",
+        "rev": "ca862a51b6f42dda1dfed2ed0f22efce6b3045c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AtaraxiaSjel",
+        "repo": "nur",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -126,6 +146,7 @@
     },
     "root": {
       "inputs": {
+        "ataraxiadev-nur": "ataraxiadev-nur",
         "fenix": "fenix",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
