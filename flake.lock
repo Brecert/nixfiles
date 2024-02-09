@@ -178,7 +178,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-pKFgV5hfOyJUN2gkM/Mg2YQlb/4DJe19EYBPxNypm7c=",
+        "narHash": "sha256-utEqMk2H/30uET0KGece8z67LgIKVRTl8d9OKS6KGMY=",
         "path": "flakes/slippi",
         "type": "path"
       },
