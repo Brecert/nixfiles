@@ -14,7 +14,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
   boot.supportedFilesystems = [ "ntfs" ];
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_9;
+  boot.kernelParams = [
+    "nvidia-drm.modset=1"
+    "initcall_blacklist=simpledrm_platform_driver_init"
+  ];
 
   hardware.bluetooth.enable = false;
   hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
