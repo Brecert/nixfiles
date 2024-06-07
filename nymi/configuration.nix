@@ -38,7 +38,7 @@
 
   # Enable .local
   services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  services.avahi.nssmdns4 = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -56,7 +56,7 @@
   };
 
 
-  services.xserver.libinput.mouse.accelProfile = "flat";
+  services.libinput.mouse.accelProfile = "flat";
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;

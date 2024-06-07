@@ -1,6 +1,6 @@
 {
   "window.menuBarVisibility": "toggle",
-  "ols.server.path": "/nix/store/4hw63s5i3jwwqf9z579g7aiw3xy3ardg-ols-nightly/bin/ols",
+  "ols.server.path": "/nix/store/rymacmqwhj6xx57lci4l55cac3f92299-ols-nightly/bin/ols",
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "GNOME dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
@@ -27,7 +27,7 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "nix.serverPath": "/nix/store/id7c0a8ximrcm9p8gxcc0yqsgkmjawg2-nil-2023-08-09/bin/nil",
+  "nix.serverPath": "/nix/store/r9y4d7i8jzp2p40sb35alklcr703yixs-nil-2023-08-09/bin/nil",
   "rust-analyzer.inlayHints.chainingHints.enable": false,
   "editor.inlayHints.enabled": "offUnlessPressed",
   "roc-lang.language-server.exe": "/nix/store/c4j2pakqya4n99p84kdzmzk9qfyaja35-roc_lang_srv-0.0.1/bin/roc_ls",
