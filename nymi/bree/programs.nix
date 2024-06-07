@@ -129,6 +129,8 @@ lib.mkMerge [
         jnoortheen.nix-ide
         esbenp.prettier-vscode
         sumneko.lua
+        ms-python.python
+        ms-pyright.pyright
       ];
     };
 

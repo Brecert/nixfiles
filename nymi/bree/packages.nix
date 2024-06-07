@@ -22,9 +22,14 @@
       # aoc (temporary)
       ruby
       
-      python311
-      python311Packages.pyside6
-      
+      (python3.withPackages(ps: [
+        ps.numpy
+        ps.scipy
+        ps.requests
+        ps.setuptools
+      ]))
+      python3Packages.pyside6
+
       qt6.full
       qtcreator
       
