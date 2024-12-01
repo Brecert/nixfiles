@@ -2,7 +2,7 @@
   "window.menuBarVisibility": "toggle",
   "ols.server.path": "/nix/store/rymacmqwhj6xx57lci4l55cac3f92299-ols-nightly/bin/ols",
   "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "GNOME dark",
+  "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "sourcekit-lsp.serverPath": "/nix/store/k72393j1yyli6qypjjvadbcb58fzsfh1-sourcekit-lsp-5.7.3/bin/sourcekit-lsp",
   "nix.enableLanguageServer": true,

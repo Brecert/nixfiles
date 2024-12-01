@@ -62,10 +62,29 @@
 
   services.libinput.mouse.accelProfile = "flat";
 
+  # Enable the Pantheon Desktop Enviroment.
+  services.xserver.displayManager.lightdm.enable = true;  
+  services.xserver.displayManager.lightdm.greeters.pantheon.enable = true;
+  
+  services.pantheon.apps.enable = true;
+  services.pantheon.contractor.enable = true;
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.pantheon.xdg-desktop-portal-pantheon ];
+  xdg.portal.config.common.default = "*";
+  
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.gdm.wayland = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.desktopManager.lomiri.enable = true;
+  # xdg.portal.enable = true;
+
+  # Enable the KDE Desktop Enviroment.
+  # services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
   
   # enable for appindicator support
   services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
